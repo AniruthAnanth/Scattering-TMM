@@ -52,6 +52,9 @@ def redheffer_product(S_global, S_i):
     return S_11, S_12, S_21, S_22
 
 def tmm_solve(layers, theta, phi, pte, ptm, wavelength):
+    if len(layers) < 2:
+        return -1, -1
+
     # Calculate tranverse wave vectors
     k_0 = 2 * np.pi / wavelength
     n_inc = np.sqrt(layers[0][0] * layers[0][1]) if len(layers) == 3 else layers[0][0] # sqrt (epsilon & myu)
